@@ -1,0 +1,17 @@
+## {{ profile.name }}
+
+{{ profile.bio }}
+
+| Public repositories | Stars | Forks | Followers |
+| ---: | ---: | ---: | ---: |
+| {{ profile.public_repos }} | {{ profile.stars }} | {{ profile.forks }} | {{ profile.followers }} |
+
+### Languages by primary repository language
+
+{% for language in profile.languages %}
+- **{{ language.name }}** — {{ language.percent }}% ({{ language.count }} repos) {{ language.bar }}
+{% else %}
+No public repository language data was found.
+{% endfor %}
+
+_Based on {{ profile.selected_repos }} selected public repositories. [View profile]({{ profile.profile_url }})._
